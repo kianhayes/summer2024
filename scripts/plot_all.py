@@ -6,7 +6,7 @@ def SaveSlicePlot(variable, ds, plot_dir, file_name):
     s = yt.SlicePlot(ds, 'z', variable)
     s.set_cmap(variable, 'inferno')
     s.annotate_title(variable)
-    s.set_zlim(variable, zmax=5e-9)
+    s.set_zlim(variable, zmax=5e-7, zmin=1e-10)
     s.save(f'{plot_dir}/{file_name}.png')
 
     return 
