@@ -1,6 +1,10 @@
+'''
+This plots all data files in a directory if the current working directory is where all the data is located. If the temperature field is not found
+then the variable plotted is density.
+'''
+
 import yt
 import os
-import time
 
 def SaveSlicePlot(variable, ds, plot_dir, file_name):
     s = yt.SlicePlot(ds, 'z', variable)
@@ -11,10 +15,8 @@ def SaveSlicePlot(variable, ds, plot_dir, file_name):
 
     return 
 
-data_dir = input('Copy directory containing the data: ')
-plot_dir = f'{data_dir}/../plots'
-os.chdir(data_dir)
-all_ds = yt.load(f'{data_dir}/*.athdf', hint='athena')
+plot_dir = '../plots'
+all_ds = yt.load(f'./*.athdf', hint='athena')
 temperature_variable = ('gas', 'temperature')
 i = 0
 
@@ -24,10 +26,9 @@ if temperature_variable in all_ds[0].derived_field_list:
         i = i + 1
 
 else:
-    print(all_ds[0].derived_field_list)
-    desired_field = input('Temperature variable not in this data. Copy desired field from Derived Field List: ')
+    density_variable = ('gas', 'density')
     for ds in all_ds: 
-        SaveSlicePlot(variable=desired_field, ds=ds, plot_dir=plot_dir, file_name=i)
+        SaveSlicePlot(variable=density_variable, ds=ds, plot_dir=plot_dir, file_name=i)
         i = i + 1
         
         

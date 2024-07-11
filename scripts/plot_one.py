@@ -1,12 +1,11 @@
 import yt
 import os
-import time
 
 def SaveSlicePlot(variable, ds, plot_dir, file_name):
     s = yt.SlicePlot(ds, 'z', variable)
     s.set_cmap(variable, 'inferno')
     s.annotate_title(variable[1])
-    s.set_zlim(variable, zmin=0, zmax=5e-9)
+    #s.set_zlim(variable, zmin=0, zmax=5e10)
     s.save(f'{plot_dir}/{file_name}.png')
 
     return 
@@ -19,12 +18,11 @@ temperature_variable = ('gas', 'temperature')
 i = 0
 
 if temperature_variable in ds[0].derived_field_list:
-    SaveSlicePlot(variable=temperature_variable, ds=ds[-1], plot_dir=plot_dir, file_name=i)
+    SaveSlicePlot(variable=temperature_variable, ds=ds[-1], plot_dir=plot_dir, file_name='temp_plot')
 
 else:
-    print(ds[0].derived_field_list)
-    desired_field = input('Temperature variable not in this data. Copy desired field from Derived Field List: ')
-    SaveSlicePlot(variable=desired_field, ds=ds[len(ds)/2], plot_dir=plot_dir, file_name=i)
+    density_variable = ('gas', 'density')
+    SaveSlicePlot(variable=density_variable, ds=ds[10], plot_dir=plot_dir, file_name='density_plot')
         
         
 
