@@ -10,14 +10,13 @@ def SaveSlicePlot(variable, ds, plot_dir, file_name):
     s = yt.SlicePlot(ds, 'z', variable)
     s.set_cmap(variable, 'inferno')
     s.annotate_title(variable)
-    s.set_zlim(variable, zmax=5e-7, zmin=1e-10)
     s.save(f'{plot_dir}/{file_name}.png')
 
     return 
 
 plot_dir = '../plots'
 all_ds = yt.load(f'./*.athdf', hint='athena')
-temperature_variable = ('gas', 'temperature')
+temperature_variable = ('gas', 'alfven_speed')
 i = 0
 
 if temperature_variable in all_ds[0].derived_field_list:

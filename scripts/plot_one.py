@@ -5,13 +5,12 @@ def SaveSlicePlot(variable, ds, plot_dir, file_name):
     s = yt.SlicePlot(ds, 'z', variable)
     s.set_cmap(variable, 'inferno')
     s.annotate_title(variable[1])
-    #s.set_zlim(variable, zmin=0, zmax=5e10)
     s.save(f'{plot_dir}/{file_name}.png')
 
     return 
 
 data_dir = input('Copy directory containing the data: ')
-plot_dir = f'{data_dir}/../plots'
+plot_dir = input('Paste directory to put plot: ')
 os.chdir(data_dir)
 ds = yt.load(f'{data_dir}/*.athdf', hint='athena')
 temperature_variable = ('gas', 'temperature')
