@@ -1,0 +1,1 @@
+ffmpeg -i *.mp4 -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov output.mov
