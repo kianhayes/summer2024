@@ -4,31 +4,47 @@ then the variable plotted is density.
 '''
 
 import yt
-import os
+import argparse
+from slice_plot import SaveSlicePlot
 
-def SaveSlicePlot(variable, ds, plot_dir, file_name):
-    s = yt.SlicePlot(ds, 'z', variable)
-    s.set_cmap(variable, 'inferno')
-    s.annotate_title(variable)
-    s.save(f'{plot_dir}/{file_name}.png')
+parser = argparse.ArgumentParser()
 
-    return 
+parser.add_argument("-d", "--data_directory", default='./', help="Directory of data file to plot", required=True)
+parser.add_argument("-p", "--plot_directory", help="Specifies a directory to put plots")
+parser.add_argument("-zmax", help="Max value of color bar", type=float)
+parser.add_argument("-zmin", help="Min value of color bar", type=float)
+parser.add_argument("-v", "--variable", default='temperature', help="Variable to plot, this fills the second item in the required tuple for this argument in yt, default being ('gas', 'temperature')")
+parser.add_argument("-t", "--title", help="Plot title")
+parser.add_argument("-norm", "--normal", default='z', help='Normal vector of the plot')
 
-plot_dir = '../plots'
-all_ds = yt.load(f'./*.athdf', hint='athena')
-temperature_variable = ('gas', 'alfven_speed')
+args = parser.parse_args()
+
+if args.plot_directory == None:
+    plot_dir = f'{args.data_directory}/../plots'
+else:
+    plot_dir = args.plot_directory
+    
+all_ds = yt.load(f'{args.data_directory}/*.athdf', hint='athena')
 i = 0
 
-if temperature_variable in all_ds[0].derived_field_list:
-    for ds in all_ds:
-        SaveSlicePlot(variable=temperature_variable, ds=ds, plot_dir=plot_dir, file_name=i)
-        i = i + 1
+if ('gas', args.variable) not in all_ds[0].derived_field_list:
+    print(f"\n('gas', '{args.variable}') is not a variable in this data. Retry with one from this list")
+    for field in all_ds[0].derived_field_list:
+        if 'gas' in field:
+            print(f'{field}')
 
 else:
-    density_variable = ('gas', 'density')
-    for ds in all_ds: 
-        SaveSlicePlot(variable=density_variable, ds=ds, plot_dir=plot_dir, file_name=i)
-        i = i + 1
-        
-        
+    for ds in all_ds:
+        SaveSlicePlot(
+            variable=('gas', args.variable), 
+            ds=ds, 
+            plot_dir=plot_dir, 
+            norm=args.normal, 
+            title=f'{args.title} at t={round(float(ds.current_time), 3)}', 
+            zmin=args.zmin, 
+            zmax=args.zmax, 
+            file_name=f'{i}.png')
+
+        i = i + 1   
+
 
