@@ -10,9 +10,9 @@ fig = plt.figure()
 
 grid = AxesGrid(
     fig,
-    (0.05, 0.07, 4, 1), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
+    (0.05, 0.07, 6, 2), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
     nrows_ncols=(1, 5),
-    axes_pad= 0.8, # Padding between the subplots
+    axes_pad= 2, # Padding between the subplots
     label_mode='L',
     share_all=True,
     cbar_location="right",
@@ -27,10 +27,12 @@ for i, solver in enumerate(solvers):
     s = yt.SlicePlot(ds=ds, normal='z', fields=variable)
     s.set_cmap(variable, 'inferno')
     s.annotate_title(solver.upper())
+    s.set_width(0.3)
     s.set_zlim(variable, zmax=1.4e-8, zmin=7e-9)
     s.set_colorbar_label(variable, 'Temperature (code)')
-    s.set_font_size(30)
+    s.set_font_size(58)
     s.set_colorbar_minorticks(variable, False)
+    s.set_minorticks(variable, False)
 
     plot = s.plots[variable]
     plot.figure = fig
