@@ -14,16 +14,19 @@ parser.add_argument("-t", "--title", help="Plot title")
 parser.add_argument("-norm", "--normal", default='z', help='Normal vector of the plot')
 
 args = parser.parse_args()
-print(f'\n{args}')
-print(f'\nData Directory: {args.data_directory}' 
-      f'\nPlot Directory: {args.plot_directory}' 
-      f'\nMax color bar value {args.zmax}' 
-      f'\nMin color bar value: {args.zmin}' 
-      f'\nVariable to plot: {args.variable}' 
-      f'\nPlot title: {args.title}'
-      f'\nNormal vector of plot: {args.normal}')
 
 ds = yt.load(args.data_directory, hint='athena')
 
+if args.title == None:
+    plot_title = f'{args.variable.upper()} at t={round(float(ds.current_time), 3)}'
+else:
+    plot_title = args.title
+
 if ('gas', args.variable) in ds.derived_field_list:
-    SaveSlicePlot(variable=('gas', args.variable), ds=ds, plot_dir=args.plot_directory, norm=args.normal, title=args.title, zmin=args.zmin, zmax=args.zmax, file_name=f'{args.variable}_plot.png')
+    SaveSlicePlot(variable=('gas', args.variable), ds=ds, plot_dir=args.plot_directory, norm=args.normal, title=plot_title, zmin=args.zmin, zmax=args.zmax, file_name=f'{args.variable}_plot.png')
+
+else:
+    print('The chosen variable is not in the field list')
+    for field in ds.derived_field_list:
+        if 'gas' in field:
+            print(field[1])

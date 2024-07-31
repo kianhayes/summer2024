@@ -6,7 +6,6 @@ solvers = ['hllc', 'lhllc', 'hlle', 'llf', 'roe']
 test_dir = "/data/khyaes/solvers_test/lw_collapse"
 
 fig = plt.figure()
-#plt.figure(figsize=(1, 1))
 
 grid = AxesGrid(
     fig,
