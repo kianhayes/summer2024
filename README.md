@@ -1,5 +1,5 @@
 # Kian Hayes Summer 2024 Benedictine College Research #
-This repository serves the purpose of documenting my research conducted during the summer of 2024 at Benedictine College. 
+This repository serves the purpose of documenting my research conducted during the summer of 2024 at Benedictine College. I'm currently in the process of writing a paper for this independent research project in which a draft for can be seen in the /plots directory.
 
 The research entails testing the performance of Athena++. Specifically, the performance of Riemann solvers and integrators included in the code along with its parallelization capabilities. Below I detail the various directories in this repository:
 
