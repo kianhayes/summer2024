@@ -38,6 +38,9 @@ Plot showing the results of 3 different tests studying the parallelization capab
 ### Animation of the Rayleigh-Taylor Instability Problem ###
 https://github.com/kianhayes/summer2024/assets/107010861/645ae73a-f704-4c2a-9e4e-89751f9d8556
 
+## /paper ##
+Contains plots used in the paper I'm writing for the research I conducted over the summer. A draft of the paper is also included in this directory. 
+
 ## /scripts ##
 Contains Python and Bash scripts that I used to streamline data processing and data collection. This is anywhere from plotting data output by Athena++ or automating iterative processes during tests.
 
