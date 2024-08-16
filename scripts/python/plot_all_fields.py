@@ -1,5 +1,5 @@
 '''
-Plots all fields in a data file if the current working directory is where all the data is located.
+Plots all fields of a data file in a specified directory.
 '''
 
 import yt
