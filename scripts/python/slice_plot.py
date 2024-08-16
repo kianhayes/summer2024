@@ -1,3 +1,7 @@
+'''
+Main function for making a slice plot present in other scripts that have more specific utility
+'''
+
 import yt
 
 def SaveSlicePlot(variable, ds, plot_dir, norm, title, file_name, zmin='min', zmax='max'):
