@@ -1,6 +1,6 @@
 '''
-This plots all data files in a directory if the current working directory is where all the data is located. If the temperature field is not found
-then the variable plotted is density.
+This plots all data files in a directory if the current working directory is where all the data is located. Various plot properties can be changed with command-line arguments such as
+the directory where the plots are placed, the bounds of the color bar, the title, and the plotted variable.
 '''
 
 import yt
