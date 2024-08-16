@@ -1,3 +1,8 @@
+'''
+Plots one variable for a single data file. Various plot properties can be changed with command-line arguments such as
+the directory where the plots are placed, the bounds of the color bar, the title, and the plotted variable.
+'''
+
 import yt
 import os
 import argparse
