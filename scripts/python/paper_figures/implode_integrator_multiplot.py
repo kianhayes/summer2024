@@ -5,16 +5,16 @@ import yt
 integrators = ['rk2', 'rk3', 'rk4', 'vl2', '5_4']
 test_dir = "/data/khyaes/integrator_test/implode"
 
-fig = plt.figure()
 pt = 1./72.27
 golden = 16/9
 width = 513*pt
+fig = plt.figure()
 
 grid = AxesGrid(
     fig,
-    (0.05, 0.07, 4, 2), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
+    (0.5, 0.07, 5, 3), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
     nrows_ncols=(1, 5),
-    axes_pad= 2, # Padding between the subplots
+    axes_pad= 1, # Padding between the subplots
     label_mode='L',
     share_all=True,
     cbar_location="right",
@@ -35,7 +35,7 @@ for i, integrator in enumerate(integrators):
     s.set_zlim(variable, zmax=1.4e-8, zmin=7e-9)
     s.set_log(variable, False)
     s.set_colorbar_label(variable, 'Temperature')
-    s.set_font({"size": 150})
+    s.set_font_size(100)
     s.set_colorbar_minorticks(variable, False)
     s.set_minorticks(variable, False)
 
