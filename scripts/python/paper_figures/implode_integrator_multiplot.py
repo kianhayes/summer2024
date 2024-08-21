@@ -1,15 +1,19 @@
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import AxesGrid
 import yt
+plt.rcParams.update({'text.usetex': True, 'font.family': 'serif', 'font.serif': 'Computer Modern'})
 
 integrators = ['rk2', 'rk3', 'rk4', 'vl2', '5_4']
 test_dir = "/data/khyaes/integrator_test/implode"
 
 fig = plt.figure()
+pt = 1./72.27
+golden = 16/9
+width = 513*pt
 
 grid = AxesGrid(
     fig,
-    (0.05, 0.07, 6, 2), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
+    (0.05, 0.07, width, width/golden), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
     nrows_ncols=(1, 5),
     axes_pad= 2, # Padding between the subplots
     label_mode='L',

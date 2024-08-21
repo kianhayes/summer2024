@@ -1,8 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib as mpl
 
+#plt.rcParams['text.usetex'] = True
 plt.rcParams.update({'mathtext.default':  'regular' })
-plt.rcParams["font.family"] = "Times New Roman"
+plt.rcParams.update({'text.usetex': True, 'font.family': 'serif',})
+#plt.rcParams["font.family"] = "Times New Roman"
+
 plt.axhline(8, 0.2, 0.499, color='black')
 plt.axhline(3, 0.5, 0.8, color='black')
 plt.xlim(-11, 11)
