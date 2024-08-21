@@ -12,7 +12,7 @@ width = 513*pt
 
 grid = AxesGrid(
     fig,
-    (0.05, 0.07, width, width/golden), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
+    (0.05, 0.07, 4, 2), # Change this to get the dimensions and sizing of the subplots right. It is the padding for (left, bottom, width, height)
     nrows_ncols=(1, 5),
     axes_pad= 2, # Padding between the subplots
     label_mode='L',
@@ -35,7 +35,7 @@ for i, integrator in enumerate(integrators):
     s.set_zlim(variable, zmax=1.4e-8, zmin=7e-9)
     s.set_log(variable, False)
     s.set_colorbar_label(variable, 'Temperature')
-    s.set_font({"size": 120})
+    s.set_font({"size": 150})
     s.set_colorbar_minorticks(variable, False)
     s.set_minorticks(variable, False)
 
