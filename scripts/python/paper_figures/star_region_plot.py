@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as patches
+plt.rcParams['text.usetex'] = True
 
 def lines(x):
     y1 = x

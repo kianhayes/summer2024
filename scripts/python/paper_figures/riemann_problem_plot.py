@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+plt.rcParams['text.usetex'] = True
 
 plt.rcParams.update({'mathtext.default':  'regular' })
 plt.rcParams["font.family"] = "Times New Roman"

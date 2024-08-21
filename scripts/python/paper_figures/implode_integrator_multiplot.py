@@ -5,9 +5,6 @@ import yt
 integrators = ['rk2', 'rk3', 'rk4', 'vl2', '5_4']
 test_dir = "/data/khyaes/integrator_test/implode"
 
-pt = 1./72.27
-golden = 16/9
-width = 513*pt
 fig = plt.figure()
 
 grid = AxesGrid(
