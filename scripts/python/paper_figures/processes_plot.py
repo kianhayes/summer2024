@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-plt.rcParams['text.usetex'] = True
+plt.rcParams.update({'text.usetex': True, 'font.family': 'serif', 'font.serif': 'Computer Modern'})
 
 #data1 = pd.read_csv('/home/khayes/summer2024/athena/processes_test/processes_data1.txt', sep='\t', header=None)
 data3 = open('/data/khyaes/processes_test/test4/data/all_data.txt', 'r')
