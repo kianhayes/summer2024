@@ -2,9 +2,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 plt.rcParams['text.usetex'] = True
+plt.style.use("E:/School/reu2024/research/summer2024/scripts/python/paper_figures/paper.mplstyle")
 
 data = pd.read_csv('E:/School/reu2024/research/summer2024/athena/solvers_test/mhd_solvers_data.csv')
-data2 = open('E:/School/reu2024/research/summer2024/athena/solvers_test', 'r')
+#data2 = open('E:/School/reu2024/research/summer2024/athena/solvers_test', 'r')
 solvers = []
 blast = []
 kh = []
@@ -40,11 +41,11 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(width, width/aspect))
 
 ax1.bar('names', 'marks', data=df1_sorted, color='#555B6E')
 ax2.bar('names', 'marks', data=df2_sorted, color='#90BEDE')
-ax1.set_title('MHD Blast', size=20)
-ax2.set_title('Leocant KH', size=20)
-ax1.set_xlabel('Solver', fontsize=15)
-ax1.set_ylabel('Performance by Time (min)', fontsize=15)
-ax2.set_xlabel('Solver', fontsize=15)
+ax1.set_title('MHD Blast', size=12)
+ax2.set_title('Leocant KH', size=12)
+ax1.set_xlabel('Solver', fontsize=12)
+ax1.set_ylabel('Performance by Time (min)', fontsize=12)
+ax2.set_xlabel('Solver', fontsize=12)
 ax1.tick_params(axis='both', which='major', labelsize=12)
 ax2.tick_params(axis='both', which='major', labelsize=12)
 

@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+plt.style.use("E:/School/reu2024/research/summer2024/scripts/python/paper_figures/paper.mplstyle")
 
 implosion_data = pd.read_csv('E:/School/reu2024/research/summer2024/athena/solvers_test/implosion_solvers_data.csv', header=None)
 rt_data = pd.read_csv('E:/School/reu2024/research/summer2024/athena/solvers_test/rt_solvers_data.txt', header=None)
@@ -37,17 +38,20 @@ df2 = pd.DataFrame(
 df1_sorted = df1.sort_values('marks')
 df2_sorted = df2.sort_values('marks')
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+pts = 1/72
+width = 513*pts
+aspect = 16/9
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(width, width/aspect))
 
 ax1.bar('names', 'marks', data=df1_sorted, color='#DE6449')
 ax2.bar('names', 'marks', data=df2_sorted, color='#4F9D69')
-ax1.set_title('Rayleigh-Taylor Instability', size=20)
-ax2.set_title('Implosion', size=20)
-ax1.set_xlabel('Solver', fontsize=15)
-ax1.set_ylabel('Performance by Time (min)', fontsize=15)
-ax2.set_xlabel('Solver', fontsize=15)
+ax1.set_title('Rayleigh-Taylor Instability', size=12)
+ax2.set_title('Implosion', size=12)
+ax1.set_xlabel('Solver', fontsize=12)
+ax1.set_ylabel('Performance by Time (min)', fontsize=12)
+ax2.set_xlabel('Solver', fontsize=12)
 ax1.tick_params(axis='both', which='major', labelsize=12)
 ax2.tick_params(axis='both', which='major', labelsize=12)
 
 fig.tight_layout()
-fig.savefig('E:/School/reu2024/research/summer2024/paper/plots/hydro_solvers_bar_graph.png', bbox_inches='tight', dpi=250)
+fig.savefig('E:/School/reu2024/research/summer2024/paper/plots/hydro_solvers_bar_graph2.png', bbox_inches='tight', dpi=250)
