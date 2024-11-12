@@ -3,8 +3,8 @@ This repository serves the purpose of documenting my research conducted during t
 
 The research entails testing the performance of Athena++. Specifically, the performance of Riemann solvers and integrators included in the code along with its parallelization capabilities. Below I detail the various directories in this repository:
 
-A draft of the paper produced from this research can be found at
-
+A draft of the paper produced from this research can be found here:
+[draft3.pdf](https://github.com/user-attachments/files/17722670/draft3.pdf)
 
 ## /athena ##
 Contains various animations or plots from simulations and spreadsheets that I used to track data. 
