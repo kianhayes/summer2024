@@ -6,7 +6,7 @@ The research entails testing the performance of Athena++. Specifically, the perf
 A draft of the paper produced from this research can be found here:
 [Paper Draft.pdf](https://github.com/user-attachments/files/17722670/draft3.pdf)
 
-## Abstract of paper: ##
+## Abstract of paper ##
 The performance of several popular Riemann solvers and time integrators in the hydrodynamics simulation code Athena++ is studied. The results of which show that the Local-Lax-Friedrich’s (LLF) solver has the fastest time to completion but prominent dissipation due to the nature of this solver and its exclusion of solutions to the Riemann problem that feature shocks and other discontinuities. For integrators, we find that the VL2 integrator performs best with the lowest time to completion for all test problems. We confirm as proposed in Stone et al. (2020) that the HLLD and HLLC solvers and VL2 integrator are most suitable for general simulations involving shocks and other discontinuities in MHD and hydrodynamic problems respectively. Lastly, the parallelization capabilities of Athena++ are also tested in which we find an exponential decaying relation between the number of processes and run time of the simulation.
 
 Below I detail the various directories in this repository.
