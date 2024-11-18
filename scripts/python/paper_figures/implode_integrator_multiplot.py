@@ -45,5 +45,5 @@ for i, integrator in enumerate(integrators):
     s.render()
 
 # 'bbox_inches='tight' here is very important for getting correct dimensions on subplots!!
-plt.savefig("/home/khayes/summer2024/paper/plots/implode_integrator_multiplot.png", bbox_inches='tight', dpi=100) 
+#plt.savefig("/home/khayes/summer2024/paper/plots/implode_integrator_multiplot.png", bbox_inches='tight', dpi=100) 
 

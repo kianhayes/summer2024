@@ -7,6 +7,7 @@ import yt
 import os
 import argparse
 from slice_plot import SaveSlicePlot
+from profile_plot import SaveProfilePlot
 
 parser = argparse.ArgumentParser()
 
@@ -28,6 +29,7 @@ else:
     plot_title = args.title
 
 if ('gas', args.variable) in ds.derived_field_list:
+    SaveProfilePlot(variable=('gas', args.variable), ds=ds, plot_dir=args.plot_directory, norm=args.normal, title=plot_title, zmin=args.zmin, zmax=args.zmax, file_name=f'{args.variable}_plot.png')
     SaveSlicePlot(variable=('gas', args.variable), ds=ds, plot_dir=args.plot_directory, norm=args.normal, title=plot_title, zmin=args.zmin, zmax=args.zmax, file_name=f'{args.variable}_plot.png')
 
 else:
